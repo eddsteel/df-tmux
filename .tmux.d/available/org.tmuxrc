@@ -1,0 +1,2 @@
+neww "zsh -c 'cd ~/.org && bin/process'"
+rename-window Org
