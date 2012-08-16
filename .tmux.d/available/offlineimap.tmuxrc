@@ -1,3 +1,4 @@
+set-option default-path ~
 neww "zsh -c 'while :; do offlineimap -o; sleep 300; done'"
 move-window -t 100
 rename-window OfflineIMAP

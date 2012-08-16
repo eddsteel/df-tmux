@@ -1,2 +1,4 @@
+set-option default-path ~
 neww -n "REPL" "scala"
 splitw -h -p 50 "clj"
+set-option default-path -
