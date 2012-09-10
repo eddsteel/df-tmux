@@ -1,0 +1,37 @@
+session=tmux
+
+build_tmux_session() {
+	cmd="tmux -2 new -d -s $session @@@ source $HOME/.tmux.conf"
+	for file in ~/.tmux.d/enabled/*; do
+		cmd="$cmd @@@ source $file"
+	done
+	# to avoid escaping each time \; is added
+	cmd=$(echo $cmd | sed 's/@@@/\;/g')
+	$cmd
+}
+
+add_project_to_tmux() {
+	name=$1
+	dir=$2
+
+	tmux set-option default-path $dir
+	tmux new-window -t "$session:" -n "$name"
+	tmux rename-window -t "$session:$name" $name
+	tmux split-window -t "$session:$name"
+	tmux resize-pane -D -t "$session:$name" 20
+	tmux select-pane -U -t "$session:$name"
+	tmux set-option default-path $HOME
+}
+
+add_projects_to_tmux() {
+	projects_file=~/.tmux.d/projects
+	if [ -f $projects_file ]; then
+		cat $projects_file | while read line; do
+			name=${line% *}
+			dir=${line#* }
+			add_project_to_tmux $name $dir
+		done
+	fi
+}
+
+# vi: set ft=sh :

@@ -1,4 +1,2 @@
-set-option default-path ~
 neww "zsh -c 'cd ~/.org && bin/process'"
 rename-window Org
-set-option default-path -

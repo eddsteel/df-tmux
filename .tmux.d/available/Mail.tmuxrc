@@ -1,5 +1,3 @@
-set-option default-path ~
 neww mutt
 rename-window Mail
 swap-window -t 0
-
