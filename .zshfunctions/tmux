@@ -1,0 +1,32 @@
+tmux_var() {
+	key=$1
+	tmux display -p | sed "s/^\[\([^]]*\)\] \([0-9]*\):.* current pane \([0-9]*\).*/TM\1\2_\3_$key/" 
+}
+
+tmux_wvar() {
+	key=$1
+	tmux display -p | sed "s/^\[\([^]]*\)\] \([0-9]*\):.*/TM\1\2$key/" 
+}
+
+get_tmux_var() {
+	line=$(tmux show-environment | grep --color=never $(tmux_var $1))
+	if [ $? -gt 0 ]; then
+		return 1
+	else
+		echo $line | cut -f2 -d=
+	fi
+}
+
+get_tmux_wvar() {
+	line=$(tmux show-environment | grep --color=never $(tmux_wvar $1))
+	if [ $? -gt 0 ]; then
+		return 1
+	else
+		echo $line | cut -f2 -d=
+	fi
+}
+
+set_tmux_wvar() {
+	tmux set-environment $(tmux_wvar $1) "$2"
+}
+
