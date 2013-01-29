@@ -26,6 +26,10 @@ get_tmux_wvar() {
 	fi
 }
 
+set_tmux_var() {
+	tmux set-environment $(tmux_var $1) "$2"
+}
+
 set_tmux_wvar() {
 	tmux set-environment $(tmux_wvar $1) "$2"
 }
