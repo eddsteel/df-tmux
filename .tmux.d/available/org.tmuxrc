@@ -1,2 +1,2 @@
-neww "zsh -c 'cd ~/.org && bin/process'"
+neww "zsh -c 'cd ~/.org && bin/process'; zsh"
 rename-window Org
