@@ -15,9 +15,9 @@ add_project_to_tmux() {
 	dir=$2
 
 	tmux set-option default-path $dir
-	tmux new-window -t "$session:" -n "$name"
+	tmux neww -t "$session:" -n "$name" vi\;$SHELL
 	tmux rename-window -t "$session:$name" $name
-	tmux split-window -t "$session:$name"
+	tmux split-window -t "$session:$name" sbt\;$SHELL
 	tmux resize-pane -D -t "$session:$name" 20
 	tmux select-pane -U -t "$session:$name"
 	tmux set-option default-path $HOME
