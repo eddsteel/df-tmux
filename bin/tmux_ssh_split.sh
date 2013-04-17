@@ -1,0 +1,1 @@
+/Users/edward/Projects/scripts/tmux_ssh_split.sh
