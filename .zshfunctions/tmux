@@ -34,3 +34,7 @@ set_tmux_wvar() {
 	tmux set-environment $(tmux_wvar $1) "$2"
 }
 
+
+ts() {
+	tmux split -h "$*"
+}
