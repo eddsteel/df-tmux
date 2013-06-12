@@ -1,0 +1,9 @@
+tmux information and config examples
+
+You can find out more about TMUX at:
+
+  * http://robots.thoughtbot.com/post/2641409235/a-tmux-crash-course
+
+  * http://tmux.svn.sourceforge.net/viewvc/tmux/trunk/FAQ
+
+  * http://github.com/eddsteel/df-tmux (contains everything demonstrated)
