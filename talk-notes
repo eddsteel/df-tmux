@@ -1,43 +1,41 @@
 Terminal multiplexer I
-	That means closing the terminal, or the connection, doesn't lose your
-	session (demo)
-	Useful: Have you ever closed a terminal tab when you thought you were closing a
-	browser tab?
+	What does that mean? It means you can close your terminal (do it)
+	go home
+	open terminal (do it)
+	and reattach (run tmux attach)
+	Applies to remote machines too.
+	This is a primary use case for tmux
 Terminal mulltiplexer II
 	any long-running process whose output is useful can be run in a tmux session
 	and sit there until you need it.
 	useful: so you can keep an eye on it but it's otherwise out of the way
-Terminal window manager I
-	Session, window, pane
+Terminal window manager
 	differs from screen here, and I think less confusing.
-	list-sessions
-	list-windows
-	list-panes
-	find-window multiplexer
-	find-window window manager
+	every process runs inside a pane inside a window
+	select panes and move/resize them
 	pane layouts
-	select panes and move them
 	multiple clients can connect over the network
 	useful for running tests alongside your editor, or looking at several servers
-Terminal window manager II
-	Scripts can provide the content, explain each
-	You can hook into bells in terminals (demonstrate)
-	so you can be notified when things happen in other terminal processes
+	Scripts can provide the content of status bar, and you can hook bells in to
+	provide notifications.
 	useful for timed events and things that use the terminal bell
+	So how do you do any of this?
 Commands I
-	:kill-pane -t 2
-	C-a x
-	run tmux kill-pane -t 4
-	That means you can send a command by console
-	means you can script tmux commands
+	every interaction with tmux is done through commands
+	> C-a q
+	So I can kill these panes in various ways
+	through tmux's command interface
+	> C-a :kill-pane -t 2
+	through a key bound to that command
+	> C-a x
+	or through the tmux command
+	> tmux kill-pane -t 4
+	That means you can send a command to tmux from scripts or anything that can run shell commands
+	insanely useful.
 Commands II
 	Since source-file is a command, you can bind keys to make sourcing files easier
 	This presentation was sourced.
 	Useful for setting up frequently used projects
-Commands III, Control of console
-	Go to ~/Projects/Hemingway/Repository and open readme.
-	note-taking
-	urlview
 Features
 	synchronized panes
 		(discuss) servers session
@@ -46,22 +44,27 @@ Features
 			e.g. pasting public key in multiple servers
 	Input helpers (pass input to any command)
 		These can be used in bindings
-		(demo) C-a / git-log
-		(demo) C-a ! cowsay moo
-		(demo) source repl
-Putting it all together
-		run tmux commands
-		write a script that runs tmux commands
-		bind a key to run a script to run tmux commands
-		bind a key to take input, to pass into a script that runs tmux commands
-		At which point neat stuff emerges: 
+		> C-a / git-log
 Open or create pane for SBT project
-'REPL/editor/logs for this project'
+	I frequently open an editor, with a build tool, in a project directory.
+	I can script that, and keybind it. (show config)
+	demonstrate
 SSH and server groups
-	'ssh sessions to all servers in group'
+	I have files containing server names that I often want to SSH to all at
+	once.
+	Run with no args to see list.
+	> C-a A sjc-infra
 diff config files on different servers
-	ssh into harv6 and harv8, and diff /etc/streaming/base/akka.conf
+	ssh into harv6 and harv7, less /etc/streaming/base/akka.conf
+	explain how to manually diff
+	explain how to do it by capturing the panes
+	show config
+	demo
 More info
-	email to dev@
+	These links provide more background information, further links, and all the
+	configuration I've used.
+	I'll email them to dev@
+	But I don't want to do that manually
+	> C-a m
 
 # vi: set ft=vo
