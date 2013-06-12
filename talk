@@ -33,17 +33,14 @@ new-window -n "Commands I" "sh -c clear; echo \"Tmux is controlled by commands (
 split-window -v -l 24 "sh -c clear; echo a command can be sent in various ways; read"
 split-window -v -l 20
 
-new-window -n "Commands II" "sh -c clear; echo You can also source files full of commands; read"
-split-window -v -l 24 "sh -c clear; echo '~/.tmux.conf is always sourced'; read"
-
-new-window -n "Commands III" "sh -c clear; echo In the other direction..; read"
+new-window -n "Commands II" "sh -c clear; echo 'Shell <-> Tmux'; read"
 split-window -v -l 24 "sh -c clear; read"
-split-window -h -p 80 "sh -c clear; echo You can send keystrokes to a pane; read"
+split-window -h -p 80 "sh -c clear; echo You can also source files full of commands; read"
 split-window -h -p 25 "sh -c clear; read"
 select-pane -L
-split-window -v -p 80 "sh -c clear; echo You can run scripts in a pane; read"
-split-window -v -p 66 "sh -c clear; echo You can run terminal apps in a pane; read"
-split-window -v -p 50 "sh -c clear; echo You can pipe a pane's contents; read"
+split-window -v -p 80 "sh -c clear; echo You can run terminal apps/scripts in a pane; read"
+split-window -v -p 66 "sh -c clear; echo \"You can pipe a pane's contents\"; read"
+split-window -v -p 50 "sh -c clear; echo You can send keystrokes to a pane; read"
 
 new-window -n "Features" "sh -c clear; echo Tmux has some other neat features; read"
 split-window -v -l 24 "sh -c clear; read"
