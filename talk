@@ -1,7 +1,7 @@
 # TMUX config to create a presentation about TMUX
 #
 new-session -s presentation "sh -c clear; echo Tmux is a terminal multiplexer; read"
-rename-window "Terminal Multiplexer I"
+rename-window "Terminal Multiplexer"
 split-window -v -l 24 "sh -c clear; read"
 split-window -h -p 80  "sh -c clear; echo It runs independent of its parent process; read"
 split-window -h -p 25 "sh -c clear; read"
@@ -9,11 +9,7 @@ select-pane -L
 split-window -v -p 66 "sh -c clear; echo Which means if you kill that, ; read"
 split-window -v -p 50 "sh -c clear; echo it continues running; read"
 
-new-window -n "Terminal Multiplexer II" "sh -c clear; echo That makes it useful for long-running local processes too; read"
-split-window -v -l 24 "tail -f /var/log/kernel.log"
-split-window -h -p 50 "top"
-
-new-window -n "Terminal Window manager I" "sh -c clear; echo Tmux is a terminal window manager; read"
+new-window -n "Terminal Window manager" "sh -c clear; echo Tmux is a terminal window manager; read"
 split-window -v -l 24 "sh -c clear; read"
 split-window -h -p 80 "sh -c clear; echo Every process sits in a pane; read"
 split-window -h -p 25 "sh -c clear; read"
@@ -22,11 +18,11 @@ split-window -v -p 80 "sh -c clear; echo Every pane sits in a window; read"
 split-window -v -p 66 "sh -c clear; echo Every window sits in a session; read"
 split-window -v -p 50 "sh -c clear; echo Sessions may have multiple clients; read"
 
-new-window -n "Commands I" "sh -c clear; echo \"Tmux is controlled by commands (and options with the set command)\"; read"
+new-window -n "Commands" "sh -c clear; echo \"Tmux is controlled by commands (and options with the set command)\"; read"
 split-window -v -l 24 "sh -c clear; echo a command can be sent in various ways; read"
 split-window -v -l 20
 
-new-window -n "Commands II" "sh -c clear; echo 'Shell <-> Tmux'; read"
+new-window -n "Console I/O" "sh -c clear; echo 'Shell <-> Tmux'; read"
 split-window -v -l 24 "sh -c clear; read"
 split-window -h -p 80 "sh -c clear; echo You can also source files full of commands; read"
 split-window -h -p 25 "sh -c clear; read"
@@ -40,7 +36,7 @@ split-window -v -l 24 "sh -c clear; read"
 split-window -h -p 80 "sh -c clear; echo You can sync all panes in a window; read"
 split-window -h -p 25 "sh -c clear; read"
 select-pane -L
-split-window -v -p 50 "sh -c clear; echo You can capture input; read"
+split-window -v -p 50 "sh -c clear; echo 'You can capture input'; read"
 
 new-window -n "e.g. I" "sh -c clear; echo e.g. Open project; read"
 split-window -v -l 24 "sh -c clear; read"
@@ -52,8 +48,7 @@ new-window -n "e.g. III" "sh -c clear; echo e.g. Diff remote files; read"
 split-window -v -l 24 "sh -c clear; read"
 
 new-window -n "More information" "sh -c clear; read"
-split-window -v -l 25 "sh -c clear; cat ~/tmux-more-info.txt; read"
-
+split-window -v -l 24 "sh -c clear; cat ~/tmux-more-info.txt; read"
 
 new-window -n "config" "vim ~/.tmux.conf"
 select-window -t 0
