@@ -38,3 +38,12 @@ set_tmux_wvar() {
 ts() {
 	tmux split -h "$*"
 }
+
+ssh() {
+	settitle "${@: -1}"
+	set_tmux_var hostname "${@: -1}"
+	command ssh "$@"
+	settitle $TITLE
+	tmux set-environment -u $(tmux_var hostname)
+}
+

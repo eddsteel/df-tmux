@@ -22,6 +22,7 @@ fi
 
 tmux neww
 for box in $boxes; do
+	# TODO: pull in hostname setting stuff from ssh()
 	tmux split -h "ssh \"$box\""
 	tmux select-layout tiled>/dev/null
 done
